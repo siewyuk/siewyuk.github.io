@@ -1,48 +1,16 @@
-class ARButton {
+class VRButton {
 
-	static createButton( renderer, sessionInit = {} ) {
+	static createButton( renderer, options ) {
+
+		if ( options ) {
+
+			console.error( 'THREE.VRButton: The "options" parameter has been removed. Please set the reference space type via renderer.xr.setReferenceSpaceType() instead.' );
+
+		}
 
 		const button = document.createElement( 'button' );
 
-		function showStartAR( /*device*/ ) {
-
-			if ( sessionInit.domOverlay === undefined ) {
-
-				var overlay = document.createElement( 'div' );
-				overlay.style.display = 'none';
-				document.body.appendChild( overlay );
-
-				var svg = document.createElementNS( 'http://www.w3.org/2000/svg', 'svg' );
-				svg.setAttribute( 'width', 38 );
-				svg.setAttribute( 'height', 38 );
-				svg.style.position = 'absolute';
-				svg.style.right = '20px';
-				svg.style.top = '20px';
-				svg.addEventListener( 'click', function () {
-
-					currentSession.end();
-
-				} );
-				overlay.appendChild( svg );
-
-				var path = document.createElementNS( 'http://www.w3.org/2000/svg', 'path' );
-				path.setAttribute( 'd', 'M 12,12 L 28,28 M 28,12 12,28' );
-				path.setAttribute( 'stroke', '#fff' );
-				path.setAttribute( 'stroke-width', 2 );
-				svg.appendChild( path );
-
-				if ( sessionInit.optionalFeatures === undefined ) {
-
-					sessionInit.optionalFeatures = [];
-
-				}
-
-				sessionInit.optionalFeatures.push( 'dom-overlay' );
-				sessionInit.domOverlay = { root: overlay };
-
-			}
-
-			//
+		function showEnterVR( /*device*/ ) {
 
 			let currentSession = null;
 
@@ -50,12 +18,8 @@ class ARButton {
 
 				session.addEventListener( 'end', onSessionEnded );
 
-				renderer.xr.setReferenceSpaceType( 'local' );
-
 				await renderer.xr.setSession( session );
-
-				button.textContent = 'STOP AR';
-				sessionInit.domOverlay.root.style.display = '';
+				button.textContent = 'EXIT VR';
 
 				currentSession = session;
 
@@ -65,8 +29,7 @@ class ARButton {
 
 				currentSession.removeEventListener( 'end', onSessionEnded );
 
-				button.textContent = 'START AR';
-				sessionInit.domOverlay.root.style.display = 'none';
+				button.textContent = 'ENTER VR';
 
 				currentSession = null;
 
@@ -80,7 +43,7 @@ class ARButton {
 			button.style.left = 'calc(50% - 50px)';
 			button.style.width = '100px';
 
-			button.textContent = 'START AR';
+			button.textContent = 'ENTER VR';
 
 			button.onmouseenter = function () {
 
@@ -98,7 +61,15 @@ class ARButton {
 
 				if ( currentSession === null ) {
 
-					navigator.xr.requestSession( 'immersive-ar', sessionInit ).then( onSessionStarted );
+					// WebXR's requestReferenceSpace only works if the corresponding feature
+					// was requested at session creation time. For simplicity, just ask for
+					// the interesting ones as optional features, but be aware that the
+					// requestReferenceSpace call will fail if it turns out to be unavailable.
+					// ('local' is always available for immersive sessions and doesn't need to
+					// be requested separately.)
+
+					const sessionInit = { optionalFeatures: [ 'local-floor', 'bounded-floor', 'hand-tracking' ] };
+					navigator.xr.requestSession( 'immersive-vr', sessionInit ).then( onSessionStarted );
 
 				} else {
 
@@ -125,11 +96,11 @@ class ARButton {
 
 		}
 
-		function showARNotSupported() {
+		function showWebXRNotFound() {
 
 			disableButton();
 
-			button.textContent = 'AR NOT SUPPORTED';
+			button.textContent = 'VR NOT SUPPORTED';
 
 		}
 
@@ -152,16 +123,16 @@ class ARButton {
 
 		if ( 'xr' in navigator ) {
 
-			button.id = 'ARButton';
+			button.id = 'VRButton';
 			button.style.display = 'none';
 
 			stylizeElement( button );
 
-			navigator.xr.isSessionSupported( 'immersive-ar' ).then( function ( supported ) {
+			navigator.xr.isSessionSupported( 'immersive-vr' ).then( function ( supported ) {
 
-				supported ? showStartAR() : showARNotSupported();
+				supported ? showEnterVR() : showWebXRNotFound();
 
-			} ).catch( showARNotSupported );
+			} );
 
 			return button;
 
@@ -195,4 +166,4 @@ class ARButton {
 
 }
 
-export { ARButton };
+export { VRButton };
