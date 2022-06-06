@@ -1,20 +1,20 @@
-import {loadGLTF, loadVideo} from "../../libs/loader.js";
+import {loadGLTF, loadVideo} from "../../mindar_libs/loader.js";
 //import {mockWithVideo} from '../../libs/camera-mock';
-import {createChromaMaterial} from "../../libs/chroma-video.js";
+import {createChromaMaterial} from "../../mindar_libs/chroma-video.js";
 
 const THREE = window.MINDAR.IMAGE.THREE;
 
 document.addEventListener('DOMContentLoaded', () => {
   const start = async() => {
-    //mockWithVideo('../../assets/mock-videos/course-banner1.mp4');
+    //mockWithVideo('../../mindar_assets/mock-videos/course-banner1.mp4');
     
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
-      imageTargetSrc: '../../assets/targets/Borobudur_Indonesia.mind',
+      imageTargetSrc: '../../mindar_assets/targets/Borobudur_Indonesia.mind',
     });
     const {renderer, scene, camera} = mindarThree;
 
-    const video = await loadVideo("../../assets/videos/Wayang_Kulit_Semar.mp4");
+    const video = await loadVideo("../../mindar_assets/videos/Wayang_Kulit_Semar.mp4");
     const texture = new THREE.VideoTexture(video);
 
     const geometry = new THREE.PlaneGeometry(1, 1080/1920);
