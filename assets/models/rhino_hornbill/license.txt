@@ -1,0 +1,11 @@
+Model Information:
+* title:	Rhinoceros hornbill
+* source:	https://sketchfab.com/3d-models/rhinoceros-hornbill-935d000754a74fd38796d7628696f943
+* author:	giunjay (https://sketchfab.com/giunjay)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Rhinoceros hornbill" (https://sketchfab.com/3d-models/rhinoceros-hornbill-935d000754a74fd38796d7628696f943) by giunjay (https://sketchfab.com/giunjay) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
