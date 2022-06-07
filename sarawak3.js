@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const sapek = await loadGLTF("../../mindar_assets/models/sapek_guitar/scene.gltf");
     // Fix model scale & position
     sapek.scene.scale.set(0.3, 0.3, 0.3);
-    sapek.scene.position.set(0, -0.4, 0);
+    sapek.scene.position.set(0, 0, 0);
 
     const hornbill = await loadGLTF("../../mindar_assets/models/rhino_hornbill/scene.gltf");
     hornbill.scene.scale.set(0.3, 0.3, 0.3);
-    hornbill.scene.position.set(0, -0.4, 0);
+    hornbill.scene.position.set(0, 0, 0);
 
     const monkey = await loadGLTF("../../mindar_assets/models/proboscis_monkey/scene.gltf");
     monkey.scene.scale.set(0.3, 0.3, 0.3);
