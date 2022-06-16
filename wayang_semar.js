@@ -33,8 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // on the target 
     plane.rotation.x = Math.PI / 2;
     plane.position.y = 0.7;
-    // original scale = 4
-    plane.scale.multiplyScalar(1);
+    plane.scale.multiplyScalar(4);
 
     const anchor = mindarThree.addAnchor(0);
     anchor.group.add(plane);
