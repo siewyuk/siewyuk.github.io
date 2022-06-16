@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // perpendicular to the image target, like the object is standing upright
     // on the target 
     plane.rotation.x = Math.PI / 2;
-    plane.position.y = 0.7;
-    // original scale is 4
-    plane.scale.multiplyScalar(1);
+    // originally = 0.7
+    plane.position.y = 0.2;
+    plane.scale.multiplyScalar(4);
     
 
     const anchor = mindarThree.addAnchor(0);
