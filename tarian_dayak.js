@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // on the target 
     plane.rotation.x = Math.PI / 2;
     // originally = 0.7
-    plane.position.y = 0.2;
+    plane.position.y = 1.0;
     plane.scale.multiplyScalar(4);
     
 
