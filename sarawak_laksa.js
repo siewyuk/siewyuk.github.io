@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
-      imageTargetSrc: '../../mindar_assets/targets/front_page.mind',
+      imageTargetSrc: '../../mindar_assets/targets/sarawak_laksa.mind',
     });
     const {renderer, cssRenderer, scene, cssScene, camera} = mindarThree;
 
