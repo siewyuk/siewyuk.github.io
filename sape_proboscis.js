@@ -29,9 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const sapekAnchor = mindarThree.addAnchor(0);
     sapekAnchor.group.add(sapek.scene);
 
-    // The second hornbill target image is index = 1
-    const hornbillAnchor = mindarThree.addAnchor(1);
-    hornbillAnchor.group.add(hornbill.scene);
+    // The second proboscis monkey target image is index = 1
+    const monkeyAnchor = mindarThree.addAnchor(1);
+    monkeyAnchor.group.add(monkey.scene);
 
     await mindarThree.start();
     renderer.setAnimationLoop(() => {
