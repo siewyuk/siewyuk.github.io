@@ -1,0 +1,11 @@
+Model Information:
+* title:	Sapek Guitar
+* source:	https://sketchfab.com/3d-models/sapek-guitar-cc6775ee72d14521bdee94337dd44a73
+* author:	Adbel Hasyir (https://sketchfab.com/adbel7705)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Sapek Guitar" (https://sketchfab.com/3d-models/sapek-guitar-cc6775ee72d14521bdee94337dd44a73) by Adbel Hasyir (https://sketchfab.com/adbel7705) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
